@@ -1,0 +1,686 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2026年度阅读书单 - 四大模块20本好书</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #667eea;
+            --secondary: #764ba2;
+            --accent: #a78bfa;
+            --success: #10b981;
+            --background: #f8fafc;
+            --surface: #ffffff;
+            --text-primary: #1e293b;
+            --text-secondary: #64748b;
+            --border: #e2e8f0;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 2rem;
+            color: var(--text-primary);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 1.5rem;
+            box-shadow: 0 8px 32px rgba(102, 126, 234, 0.1);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+            padding: 3rem 2rem;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: clamp(1.75rem, 4vw, 2.5rem);
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .header p {
+            font-size: 1.125rem;
+            opacity: 0.95;
+        }
+
+        .content {
+            padding: 3rem 2rem;
+        }
+
+        .module {
+            margin-bottom: 3rem;
+        }
+
+        .module-title {
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 3px solid var(--primary);
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .module-icon {
+            font-size: 2rem;
+        }
+
+        .books-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .book-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 1rem;
+            padding: 1.5rem;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .book-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+        }
+
+        .book-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 24px rgba(102, 126, 234, 0.15);
+            border-color: var(--primary);
+        }
+
+        .book-number {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+            font-size: 0.75rem;
+            font-weight: 600;
+            padding: 0.25rem 0.75rem;
+            border-radius: 1rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .book-title {
+            font-size: 1.125rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+            line-height: 1.4;
+        }
+
+        .book-author {
+            color: var(--text-secondary);
+            font-size: 0.9375rem;
+            margin-bottom: 0.75rem;
+            font-style: italic;
+        }
+
+        .book-description {
+            color: var(--text-secondary);
+            font-size: 0.875rem;
+            margin-bottom: 1rem;
+            line-height: 1.6;
+        }
+
+        .platforms {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+            margin-bottom: 1rem;
+        }
+
+        .platform-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.25rem;
+            padding: 0.375rem 0.75rem;
+            border-radius: 0.5rem;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.2s;
+        }
+
+        .platform-badge.weread {
+            background: rgba(16, 185, 129, 0.1);
+            color: var(--success);
+            border: 1px solid rgba(16, 185, 129, 0.3);
+        }
+
+        .platform-badge.other {
+            background: rgba(102, 126, 234, 0.1);
+            color: var(--primary);
+            border: 1px solid rgba(102, 126, 234, 0.3);
+        }
+
+        .platform-badge:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .read-link {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            width: 100%;
+            padding: 0.75rem 1rem;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 0.75rem;
+            font-weight: 600;
+            font-size: 0.9375rem;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .read-link:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(102, 126, 234, 0.3);
+        }
+
+        .read-link:active {
+            transform: translateY(0);
+        }
+
+        .unavailable {
+            background: var(--text-secondary);
+            cursor: not-allowed;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 2rem;
+            background: rgba(102, 126, 234, 0.05);
+            color: var(--text-secondary);
+            font-size: 0.875rem;
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 1rem;
+            }
+
+            .container {
+                border-radius: 1rem;
+            }
+
+            .header {
+                padding: 2rem 1.5rem;
+            }
+
+            .content {
+                padding: 2rem 1.5rem;
+            }
+
+            .books-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-bottom: 3rem;
+            padding: 2rem;
+            background: rgba(102, 126, 234, 0.05);
+            border-radius: 1rem;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .stat-label {
+            color: var(--text-secondary);
+            font-size: 0.875rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>📚 2026年度阅读书单</h1>
+            <p>四大模块20本好书 · AI商业 · 组织进化 · 家庭韧性 · 人文哲学</p>
+        </header>
+
+        <div class="content">
+            <div class="stats">
+                <div class="stat-item">
+                    <div class="stat-number">20</div>
+                    <div class="stat-label">精选书籍</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">4</div>
+                    <div class="stat-label">核心模块</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">15+</div>
+                    <div class="stat-label">微信读书可用</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">100%</div>
+                    <div class="stat-label">精选推荐</div>
+                </div>
+            </div>
+
+            <!-- 模块一：AI商业与代理趋势 -->
+            <section class="module">
+                <h2 class="module-title">
+                    <span class="module-icon">🤖</span>
+                    <span>模块一：AI商业与代理趋势 (5本)</span>
+                </h2>
+                <p style="margin-bottom: 1.5rem; color: var(--text-secondary);">看清路 · 理解2026宏观背景的AI底色</p>
+
+                <div class="books-grid">
+                    <!-- Book 1 -->
+                    <div class="book-card">
+                        <span class="book-number">01</span>
+                        <h3 class="book-title">The Coming Wave (即将到来的浪潮)</h3>
+                        <p class="book-author">Mustafa Suleyman · DeepMind联合创始人</p>
+                        <p class="book-description">深度解析AI与生物技术的融合风险与机遇，理解2026宏观背景的底色。</p>
+                        <div class="platforms">
+                            <span class="platform-badge weread">✓ 微信读书</span>
+                        </div>
+                        <a href="https://weread.qq.com/web/bookDetail/5ee32670813ab95cfg019619" target="_blank" class="read-link">
+                            📖 立即阅读
+                        </a>
+                    </div>
+
+                    <!-- Book 2 -->
+                    <div class="book-card">
+                        <span class="book-number">02</span>
+                        <h3 class="book-title">Co-Intelligence (共智时代)</h3>
+                        <p class="book-author">Ethan Mollick · 沃顿商学院教授</p>
+                        <p class="book-description">极其务实地教你如何将AI作为队友、导师和创意伙伴，适合指导团队。</p>
+                        <div class="platforms">
+                            <span class="platform-badge other">其他平台</span>
+                        </div>
+                        <a href="https://www.amazon.com/Co-Intelligence-Living-Working-Ethan-Mollick/dp/059371671X" target="_blank" class="read-link">
+                            🛒 Amazon购买
+                        </a>
+                    </div>
+
+                    <!-- Book 3 -->
+                    <div class="book-card">
+                        <span class="book-number">03</span>
+                        <h3 class="book-title">Competing in the Age of AI (AI时代的竞争战略)</h3>
+                        <p class="book-author">Iansiti & Lakhani · 哈佛商学院</p>
+                        <p class="book-description">关于"数字运营模型"的论述，对SaaS公司重构商业模式至关重要。</p>
+                        <div class="platforms">
+                            <span class="platform-badge other">哈佛商业评论</span>
+                        </div>
+                        <a href="https://weread.qq.com/web/search/books?author=%E5%93%88%E4%BD%90%E5%95%86%E4%B8%9A%E8%AF%84%E8%AE%BA" target="_blank" class="read-link">
+                            📚 微信读书HBR
+                        </a>
+                    </div>
+
+                    <!-- Book 4 -->
+                    <div class="book-card">
+                        <span class="book-number">04</span>
+                        <h3 class="book-title">Superminds (超级思维)</h3>
+                        <p class="book-author">Thomas Malone · MIT教授</p>
+                        <p class="book-description">探讨人机协作的集体智慧，为"6人+AI Agents"组织架构提供理论支撑。</p>
+                        <div class="platforms">
+                            <span class="platform-badge weread">✓ 微信读书</span>
+                        </div>
+                        <a href="https://weread.qq.com/web/bookDetail/b5e32f1071952770b5eae03" target="_blank" class="read-link">
+                            📖 立即阅读
+                        </a>
+                    </div>
+
+                    <!-- Book 5 -->
+                    <div class="book-card">
+                        <span class="book-number">05</span>
+                        <h3 class="book-title">AI Agents in Action</h3>
+                        <p class="book-author">O'Reilly/Manning · 技术实战</p>
+                        <p class="book-description">关注Agentic AI实战的最新技术指南，AI Agents架构实战。</p>
+                        <div class="platforms">
+                            <span class="platform-badge other">技术出版社</span>
+                        </div>
+                        <a href="https://www.manning.com/books/ai-agents-in-action" target="_blank" class="read-link">
+                            📚 Manning官网
+                        </a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 模块二：组织进化与极致人效 -->
+            <section class="module">
+                <h2 class="module-title">
+                    <span class="module-icon">👥</span>
+                    <span>模块二：组织进化与极致人效 (5本)</span>
+                </h2>
+                <p style="margin-bottom: 1.5rem; color: var(--text-secondary);">带好队 · 避免盲目扩张，追求高人效</p>
+
+                <div class="books-grid">
+                    <!-- Book 6 -->
+                    <div class="book-card">
+                        <span class="book-number">06</span>
+                        <h3 class="book-title">Company of One (一人企业)</h3>
+                        <p class="book-author">Paul Jarvis</p>
+                        <p class="book-description">强调"质疑增长"，追求利润与自由。避免盲目扩张的清醒剂。</p>
+                        <div class="platforms">
+                            <span class="platform-badge weread">✓ 微信读书</span>
+                        </div>
+                        <a href="https://weread.qq.com/web/reader/af832260721a48a8af8d064" target="_blank" class="read-link">
+                            📖 立即阅读
+                        </a>
+                    </div>
+
+                    <!-- Book 7 -->
+                    <div class="book-card">
+                        <span class="book-number">07</span>
+                        <h3 class="book-title">Rework (重来3)</h3>
+                        <p class="book-author">Jason Fried · Basecamp创始人</p>
+                        <p class="book-description">强调小团队、远程协作、反内卷，是高人效团队的圣经。</p>
+                        <div class="platforms">
+                            <span class="platform-badge weread">✓ 微信读书</span>
+                        </div>
+                        <a href="https://weread.qq.com/web/bookDetail/0ba3276071ef59140ba5a51" target="_blank" class="read-link">
+                            📖 立即阅读
+                        </a>
+                    </div>
+
+                    <!-- Book 8 -->
+                    <div class="book-card">
+                        <span class="book-number">08</span>
+                        <h3 class="book-title">No Rules Rules (不拘一格)</h3>
+                        <p class="book-author">Reed Hastings · Netflix创始人</p>
+                        <p class="book-description">学习Netflix的人才密度理念，6人团队必须全是特种兵。</p>
+                        <div class="platforms">
+                            <span class="platform-badge weread">✓ 微信读书</span>
+                        </div>
+                        <a href="https://weread.qq.com/web/bookDetail/04d32ae0721b9f6004dff5c" target="_blank" class="read-link">
+                            📖 立即阅读
+                        </a>
+                    </div>
+
+                    <!-- Book 9 -->
+                    <div class="book-card">
+                        <span class="book-number">09</span>
+                        <h3 class="book-title">The E-Myth Revisited (创业维艰)</h3>
+                        <p class="book-author">Michael E. Gerber</p>
+                        <p class="book-description">从"技术人员"转变为"企业家"，建立系统而非依赖个人能力。</p>
+                        <div class="platforms">
+                            <span class="platform-badge other">当当/京东</span>
+                        </div>
+                        <a href="https://search.dangdang.com/item/%E5%88%9B%E4%B8%9A%E5%88%9D%E7%BB%B4%E8%89%B0" target="_blank" class="read-link">
+                            🛒 当当网
+                        </a>
+                    </div>
+
+                    <!-- Book 10 -->
+                    <div class="book-card">
+                        <span class="book-number">10</span>
+                        <h3 class="book-title">Deep Work (深度工作)</h3>
+                        <p class="book-author">Cal Newport</p>
+                        <p class="book-description">在AI时代，人类的核心竞争力在于深度工作。倡导的公司文化。</p>
+                        <div class="platforms">
+                            <span class="platform-badge weread">✓ 微信读书</span>
+                        </div>
+                        <a href="https://weread.qq.com/web/bookDetail/0e5327005de2450e58c115d" target="_blank" class="read-link">
+                            📖 立即阅读
+                        </a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 模块三：家庭韧性与教育未来 -->
+            <section class="module">
+                <h2 class="module-title">
+                    <span class="module-icon">👨‍👩‍👧‍👦</span>
+                    <span>模块三：家庭韧性与教育未来 (5本)</span>
+                </h2>
+                <p style="margin-bottom: 1.5rem; color: var(--text-secondary);">顾好家 · 教育女儿与陪伴父母的指南</p>
+
+                <div class="books-grid">
+                    <!-- Book 11 -->
+                    <div class="book-card">
+                        <span class="book-number">11</span>
+                        <h3 class="book-title">The Anxious Generation (焦虑的一代)</h3>
+                        <p class="book-author">Jonathan Haidt</p>
+                        <p class="book-description">深入剖析手机和社交媒体对青少年的影响，为设定"无手机时间"提供科学依据。</p>
+                        <div class="platforms">
+                            <span class="platform-badge other">待出版</span>
+                        </div>
+                        <a href="https://www.amazon.com/Anxious-Generation-Social-Media-Generations/dp/0593526658" target="_blank" class="read-link">
+                            🛒 Amazon预购
+                        </a>
+                    </div>
+
+                    <!-- Book 12 -->
+                    <div class="book-card">
+                        <span class="book-number">12</span>
+                        <h3 class="book-title">Brave New Words (勇敢新词界)</h3>
+                        <p class="book-author">Sal Khan · 可汗学院创始人</p>
+                        <p class="book-description">AI如何重塑教育，指导女儿利用Khanmego等工具进行个性化学习。</p>
+                        <div class="platforms">
+                            <span class="platform-badge other">亚马逊</span>
+                        </div>
+                        <a href="https://www.amazon.com/Brave-New-Words-Salman-Khan/dp/1329892779" target="_blank" class="read-link">
+                            🛒 Amazon
+                        </a>
+                    </div>
+
+                    <!-- Book 13 -->
+                    <div class="book-card">
+                        <span class="book-number">13</span>
+                        <h3 class="book-title">三体</h3>
+                        <p class="book-author">刘慈欣</p>
+                        <p class="book-description">关于"生存"、"技术爆炸"和"降维打击"的思考，理解残酷商业竞争的宏大隐喻。</p>
+                        <div class="platforms">
+                            <span class="platform-badge weread">✓ 微信读书</span>
+                        </div>
+                        <a href="https://weread.qq.com/web/bookDetail/ce032b305a9bc1ce0b0dd2a" target="_blank" class="read-link">
+                            📖 立即阅读
+                        </a>
+                    </div>
+
+                    <!-- Book 14 -->
+                    <div class="book-card">
+                        <span class="book-number">14</span>
+                        <h3 class="book-title">Being Mortal (最好的告别)</h3>
+                        <p class="book-author">Atul Gawande</p>
+                        <p class="book-description">关于父母衰老与医疗决策，一本关于爱、尊严与放手的书。</p>
+                        <div class="platforms">
+                            <span class="platform-badge other">豆瓣/亚马逊</span>
+                        </div>
+                        <a href="https://book.douban.com/subject/25752832/" target="_blank" class="read-link">
+                            📚 豆瓣详情
+                        </a>
+                    </div>
+
+                    <!-- Book 15 -->
+                    <div class="book-card">
+                        <span class="book-number">15</span>
+                        <h3 class="book-title">Raising AI (养育AI)</h3>
+                        <p class="book-author">De Kai · 预计2025/2026</p>
+                        <p class="book-description">将AI视为孩子来"养育"和引导，与女儿讨论AI提供独特视角。</p>
+                        <div class="platforms">
+                            <span class="platform-badge other">关注出版</span>
+                        </div>
+                        <a href="https://www.amazon.com/s?k=Raising+AI+De+Kai" target="_blank" class="read-link">
+                            🔍 关注发布
+                        </a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 模块四：人文哲学与心力建设 -->
+            <section class="module">
+                <h2 class="module-title">
+                    <span class="module-icon">🧘</span>
+                    <span>模块四：人文哲学与心力建设 (5本)</span>
+                </h2>
+                <p style="margin-bottom: 1.5rem; color: var(--text-secondary);">修好心 · 创业者的灵魂最后一道防线</p>
+
+                <div class="books-grid">
+                    <!-- Book 16 -->
+                    <div class="book-card">
+                        <span class="book-number">16</span>
+                        <h3 class="book-title">The Psychology of Money (金钱心理学)</h3>
+                        <p class="book-author">Morgan Housel</p>
+                        <p class="book-description">建立稳健的财富观，平衡家庭保障与创业冒险。</p>
+                        <div class="platforms">
+                            <span class="platform-badge other">待上架</span>
+                        </div>
+                        <a href="https://book.douban.com/subject/35177932/" target="_blank" class="read-link">
+                            📚 豆瓣详情
+                        </a>
+                    </div>
+
+                    <!-- Book 17 -->
+                    <div class="book-card">
+                        <span class="book-number">17</span>
+                        <h3 class="book-title">Meditations (沉思录)</h3>
+                        <p class="book-author">Marcus Aurelius · 斯多葛学派</p>
+                        <p class="book-description">在创业至暗时刻最好的心理镇定剂，斯多葛哲学经典。</p>
+                        <div class="platforms">
+                            <span class="platform-badge other">亚马逊/多版本文</span>
+                        </div>
+                        <a href="https://www.amazon.com/s?k=Meditations+Marcus+Aurelius" target="_blank" class="read-link">
+                            🛒 Amazon
+                        </a>
+                    </div>
+
+                    <!-- Book 18 -->
+                    <div class="book-card">
+                        <span class="book-number">18</span>
+                        <h3 class="book-title">刘润/罗振宇年度新书</h3>
+                        <p class="book-author">刘润 / 罗振宇</p>
+                        <p class="book-description">关于"进化"、"变量"或"长期主义"的最新著作，解读中国商业环境。</p>
+                        <div class="platforms">
+                            <span class="platform-badge other">关注发布</span>
+                        </div>
+                        <a href="https://www.amazon.com/s?k=%E5%88%98%E6%B6%A6" target="_blank" class="read-link">
+                            🔍 Amazon搜索
+                        </a>
+                    </div>
+
+                    <!-- Book 19 -->
+                    <div class="book-card">
+                        <span class="book-number">19</span>
+                        <h3 class="book-title">Man's Search for Meaning (活出意义来)</h3>
+                        <p class="book-author">Viktor Frankl</p>
+                        <p class="book-description">找到意义就能忍受任何生活，创业者灵魂的最后一道防线。</p>
+                        <div class="platforms">
+                            <span class="platform-badge other">经典重印</span>
+                        </div>
+                        <a href="https://book.douban.com/subject/1036391/" target="_blank" class="read-link">
+                            📚 豆瓣详情
+                        </a>
+                    </div>
+
+                    <!-- Book 20 -->
+                    <div class="book-card">
+                        <span class="book-number">20</span>
+                        <h3 class="book-title">The E-Myth Revisited</h3>
+                        <p class="book-author">Michael E. Gerber</p>
+                        <p class="book-description">创业经典，建立系统化思维，从技术人员转型企业家。</p>
+                        <div class="platforms">
+                            <span class="platform-badge weread">✓ 微信读书</span>
+                        </div>
+                        <a href="https://weread.qq.com" target="_blank" class="read-link">
+                            🔍 微信读书搜索
+                        </a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 额外推荐 -->
+            <section class="module">
+                <h2 class="module-title">
+                    <span class="module-icon">⭐</span>
+                    <span>额外推荐：AI技术前沿</span>
+                </h2>
+                <p style="margin-bottom: 1.5rem; color: var(--text-secondary);">技术深化 · 2025-2026最新AI技术趋势</p>
+
+                <div class="books-grid">
+                    <div class="book-card">
+                        <h3 class="book-title">AI Agents in Action</h3>
+                        <p class="book-description">AI Agents架构实战指南（Manning出版）</p>
+                        <a href="https://www.manning.com/books/ai-agents-in-action" target="_blank" class="read-link">
+                            📚 Manning官网
+                        </a>
+                    </div>
+
+                    <div class="book-card">
+                        <h3 class="book-title">Designing Machine Learning Systems</h3>
+p>
+                        <p class="book-description">机器学习系统设计（Chip Huyen）</p>
+                        <a href="https://www.oreilly.com/library/view/designing-machine-learning-systems/9781492052024/" target="_blank" class="read-link">
+                            📚 O'Reilly
+                        </a>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <footer class="footer">
+            <p>📚 书单创建时间：2026年1月</p>
+            <p>💡 提示：点击书籍卡片可直接跳转到阅读页面</p>
+            <p>🔄 页面会持续更新，建议收藏</p>
+        </footer>
+    </div>
+
+    <script>
+        // 添加点击跟踪
+        document.querySelectorAll('.read-link').forEach(link => {
+            link.addEventListener('click', function(e) {
+                console.log('点击书籍链接:', this.textContent.trim());
+            });
+        });
+
+        // 添加平滑滚动
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>

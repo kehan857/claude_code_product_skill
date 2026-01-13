@@ -1,0 +1,217 @@
+{
+  "project_type": "saas",
+  "tech_stack": "html",
+  "ui_style": {
+    "name": "Glassmorphism",
+    "description": "毛玻璃效果，半透明背景配合模糊",
+    "characteristics": [
+      "半透明背景 (rgba(255,255,255,0.1))",
+      "backdrop-filter: blur(10px)",
+      "细腻边框",
+      "柔和阴影",
+      "渐变叠加"
+    ],
+    "css_example": "background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.2);",
+    "best_for": [
+      "现代SaaS",
+      "移动应用",
+      "数据可视化"
+    ],
+    "color_schemes": [
+      "vibrant",
+      "cool",
+      "gradient"
+    ]
+  },
+  "color_palette": {
+    "name": "Professional Blue",
+    "primary": "#2563eb",
+    "secondary": "#3b82f6",
+    "accent": "#60a5fa",
+    "background": "#ffffff",
+    "text": "#1e293b",
+    "success": "#10b981",
+    "warning": "#f59e0b",
+    "error": "#ef4444",
+    "description": "专业可信的蓝色系，适合企业SaaS产品"
+  },
+  "typography": {
+    "name": "Modern Clean",
+    "heading": "Inter",
+    "body": "Inter",
+    "code": "JetBrains Mono",
+    "import": "@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');",
+    "css": "font-family: 'Inter', system-ui, sans-serif;",
+    "best_for": [
+      "SaaS",
+      "仪表盘",
+      "现代应用"
+    ],
+    "characteristics": [
+      "清晰易读",
+      "现代简约",
+      "多语言支持"
+    ]
+  },
+  "components": [
+    {
+      "name": "Top Navigation Bar",
+      "elements": [
+        "logo",
+        "nav_links",
+        "search",
+        "user_menu"
+      ],
+      "best_for": [
+        "大多数网站"
+      ],
+      "responsive": "Hamburger menu on mobile"
+    },
+    {
+      "name": "Basic Card",
+      "elements": [
+        "card_image",
+        "card_content",
+        "card_actions"
+      ],
+      "shadow": "md",
+      "border_radius": "lg"
+    },
+    {
+      "name": "Text Input",
+      "elements": [
+        "label",
+        "input_field",
+        "helper_text",
+        "error_message"
+      ],
+      "states": [
+        "default",
+        "focus",
+        "error",
+        "disabled"
+      ]
+    }
+  ],
+  "ux_guidelines": [
+    {
+      "category": "accessibility",
+      "name": "WCAG 2.1 Level AA",
+      "guidelines": [
+        "文字与背景对比度至少4.5:1",
+        "大文字(18pt+)对比度至少3:1",
+        "交互元素焦点可见",
+        "不依赖颜色传达信息",
+        "提供文本替代",
+        "键盘可访问",
+        "错误明确标识"
+      ]
+    },
+    {
+      "category": "accessibility",
+      "name": "语义化HTML",
+      "guidelines": [
+        "使用正确的标题层次(h1-h6)",
+        " landmarks区域标识",
+        "表单关联label",
+        "按钮使用button元素",
+        "链接使用a元素",
+        "alt属性描述图片"
+      ]
+    },
+    {
+      "category": "responsive_design",
+      "name": null,
+      "guidelines": []
+    },
+    {
+      "category": "responsive_design",
+      "name": "Mobile First",
+      "guidelines": [
+        "从小屏幕开始设计",
+        "渐进增强",
+        "触摸友好(最小44x44px)",
+        "避免hover交互",
+        "简化导航",
+        "优化加载速度"
+      ]
+    },
+    {
+      "category": "performance",
+      "name": "加载性能",
+      "guidelines": [
+        "首屏<2秒",
+        "可交互<3秒",
+        "图片懒加载",
+        "代码分割",
+        "CDN加速",
+        "压缩资源",
+        "减少HTTP请求"
+      ]
+    },
+    {
+      "category": "performance",
+      "name": "交互性能",
+      "guidelines": [
+        "动画<100ms",
+        "响应<50ms",
+        "使用transform动画",
+        "避免重排重绘",
+        "节流防抖",
+        "虚拟滚动"
+      ]
+    },
+    {
+      "category": "navigation",
+      "name": "导航最佳实践",
+      "guidelines": [
+        "清晰的导航标签",
+        "当前页面高亮",
+        "面包屑导航",
+        "搜索功能可见",
+        "返回按钮",
+        "主导航<7项",
+        "深度不超过3层"
+      ]
+    },
+    {
+      "category": "forms",
+      "name": "表单可用性",
+      "guidelines": [
+        "清晰的字段标签",
+        "内联验证",
+        "明确错误提示",
+        "必填标识",
+        "密码强度指示",
+        "自动格式化",
+        "保存进度"
+      ]
+    },
+    {
+      "category": "content",
+      "name": "内容可读性",
+      "guidelines": [
+        "段落长度3-5行",
+        "句子长度15-20词",
+        "标题简洁明确",
+        "使用列表组织",
+        "关键信息突出",
+        "避免术语",
+        "一致语气"
+      ]
+    },
+    {
+      "category": "microinteractions",
+      "name": "微交互反馈",
+      "guidelines": [
+        "按钮按下状态",
+        "链接悬停效果",
+        "加载动画",
+        "成功/错误提示",
+        "过渡动画",
+        "手势反馈",
+        "进度指示"
+      ]
+    }
+  ]
+}
